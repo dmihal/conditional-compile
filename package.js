@@ -10,15 +10,11 @@ Package.describe({
   documentation: 'README.md'
 });
 
-Package.onUse(function(api) {
-  api.versionsFrom('1.4.1.2');
-  api.use('ecmascript');
-  api.mainModule('conditional-compile.js');
+Package.onUse(function (api) {
+  api.use('isobuild:compiler-plugin@1.0.0');
 });
 
-Package.onTest(function(api) {
-  api.use('ecmascript');
-  api.use('tinytest');
-  api.use('conditional-compile');
-  api.mainModule('conditional-compile-tests.js');
+Package.registerBuildPlugin({
+  name: 'conditional-compile',
+  sources: ['conditional-compile.js'],
 });
