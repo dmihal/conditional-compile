@@ -12,3 +12,17 @@ settings for different deployments.
 2. Add a `includeFiles` array to your `settings.json` file. For more
   information about Meteor settings, see the
   [documentation](https://docs.meteor.com/api/core.html#Meteor-settings).
+
+## Example
+
+If the following `settings.json` file is used, any file named `feature1.cond.js`
+will be included. Any other file with the extension `.cond.js` will not be
+included.
+
+```{
+  "includeFiles": [
+    "feature1"
+  ],
+  "otherProperty": "Other properties are ignored"
+}
+```
