@@ -16,5 +16,9 @@ Package.onUse(function (api) {
 
 Package.registerBuildPlugin({
   name: 'conditional-compile',
-  sources: ['conditional-compile.js'],
+  use: ['ecmascript'],
+  sources: [
+    'conditional-compile.js',
+    'compiler.js',
+  ],
 });
