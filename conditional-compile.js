@@ -19,7 +19,7 @@ if (process.env.METEOR_SETTINGS) {
 
 Plugin.registerCompiler({
   extensions: ["cond.js"],
-  filenames: [settings.filename]
+  filenames: settings.filename ? [settings.filename] : []
 }, function () {
   return new Compiler(settings);
 });

@@ -12,7 +12,7 @@ Package.onUse(function (api) {
 
 Package.registerBuildPlugin({
   name: 'conditional-compile',
-  use: ['ecmascript'],
+  use: ['ecmascript@0.4.0'],
   sources: [
     'conditional-compile.js',
     'compiler.js',

@@ -8,7 +8,7 @@ Compiler = function(settings) {
   if (settings.filename) {
     this.settingsFile = settings.filename;
   } else {
-    this.readSettings(settings.value);
+    this.readSettings(settings.value || {});
   }
 };
 
