@@ -5,7 +5,9 @@ Compiler = function() {
   this.names = null;
 
   var data = fs.readFileSync('./conditional-include.txt', 'utf8');
-  this.names = data.split('\n');
+  this.names = data.split('\n').filter(function(line){
+    return line.charAt(0) != '#';
+  });
 };
 
 
