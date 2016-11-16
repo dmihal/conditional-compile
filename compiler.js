@@ -4,10 +4,14 @@ Compiler = function() {
   this.pendingFiles = [];
   this.names = null;
 
-  var data = fs.readFileSync('./conditional-include.txt', 'utf8');
-  this.names = data.split('\n').filter(function(line){
-    return line.charAt(0) != '#';
-  });
+  try {
+    var data = fs.readFileSync('./conditional-include.txt', 'utf8');
+    this.names = data.split('\n').filter(function(line){
+      return line.charAt(0) != '#';
+    });
+  } catch (e) {
+    console.warn('conditional-compile: Could not load conditional-include.txt file.');
+  }
 };
 
 
