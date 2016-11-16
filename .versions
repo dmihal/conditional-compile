@@ -1,6 +1,6 @@
 babel-compiler@6.6.4
 babel-runtime@0.1.7
-dmihal:conditional-compile@0.0.1
+dmihal:conditional-compile@0.0.2
 ecmascript@0.4.2
 ecmascript-runtime@0.2.9
 meteor@1.1.16
