@@ -1,6 +1,6 @@
 Package.describe({
   name: 'dmihal:conditional-compile',
-  version: '0.0.1',
+  version: '0.0.2',
   summary: 'Meteor package for conditionally including files for compilation',
   git: 'https://github.com/dmihal/conditional-compile.git',
   documentation: 'README.md'
