@@ -1,15 +1,11 @@
-Compiler = function(settings) {
-  this.FILENAME_REGEX = /()/;
+fs = require('fs');
 
+Compiler = function() {
   this.pendingFiles = [];
   this.names = null;
-  this.settingsFile = null;
 
-  if (settings.filename) {
-    this.settingsFile = settings.filename;
-  } else {
-    this.readSettings(settings.value || {});
-  }
+  var data = fs.readFileSync('./conditional-include.txt', 'utf8');
+  this.names = data.split('\n');
 };
 
 
@@ -17,14 +13,6 @@ Compiler.prototype.processFilesForTarget = function(files) {
   var self = this;
 
   files.forEach(function(file) {
-
-    // Check if this file is the settings file
-    if (file.getBasename() == self.settingsFile) {
-      var settings = JSON.parse(file.getContentsAsString());
-      self.readSettings(settings);
-      return;
-    }
-
     // If the settings hasn't been loaded, delay processing
     if (!self.names) {
       self.pendingFiles.push(file);
@@ -51,9 +39,4 @@ Compiler.prototype.processFile = function(file) {
       path: file.getPathInPackage()
     });
   }
-};
-
-
-Compiler.prototype.readSettings = function(settings) {
-  this.names = settings.includeFiles || [];
 };
